@@ -85,11 +85,14 @@ deepstream-app -c source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8
 ```
 
 13. Copy the file you generated out to your host
+    
+ex:
 ```
 docker cp b1318da02df7:/opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/out.mp4 out_new.mp4
 ```
 
-14. Scp the file to your jump server
+1.  Scp the file to your jump server
+ex:
 ```
 scp leann@172.23.30.55:/home/leann/out_new.mp4 out_new.mp4
 ```
