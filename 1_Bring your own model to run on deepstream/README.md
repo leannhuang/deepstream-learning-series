@@ -3,7 +3,7 @@ The goal of the lab1 is to guide you to bring your own model to the sample confi
 
 ## Steps
 
-### Step 1: Create the deepstream enviroment
+### Step 1: Create the deepstream environment
 1. google "Ngc nvidia"
 2. Open the terminal
 ```
