@@ -10,7 +10,12 @@ git clone https://github.com/leannhuang/custom-vision-parser-lib-for-nvidia-deep
 ```
 
 ### Step 2: Build the docker image and generate the parser library
-1. Docker build with the Deepstream version(DS_VER) and CUDA version(CUDA_VER) you set
+1. cd to the corresponding directory
+```
+cd custom-vision-parser-lib-for-nvidia-deepstream/amd64/
+```
+
+2. Docker build with the Deepstream version(DS_VER) and CUDA version(CUDA_VER) you set
 ```
 docker build -f Dockerfile_amd_arg.dockerfile --build-arg DS_VER=6.1 --build-arg CUDA_VER=11.6 -t test . 
 ```
