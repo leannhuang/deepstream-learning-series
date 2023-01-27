@@ -2,6 +2,8 @@
 The goal of the lab1 is to guide you to bring your own model to the sample configurations and run your model on deepstream.
 
 ## Steps
+
+### Step 1: Create the deepstream enviroment
 1. google "Ngc nvidia"
 2. Open the terminal
 ```
@@ -19,34 +21,38 @@ apt-get install unzip
 apt-get install vim
 ```
 
-5. Download the files needed including model.onnx, label.txt, parser library, and config files for bringing your own model on deepstream 
+### Step 2: Download the files needed (model and parser library)
+
+1. Download the files needed including model.onnx, label.txt, parser library, and config files for bringing your own model on deepstream 
 ```
 wget https://leannazdeepstream.blob.core.windows.net/learningseries/MyCustomThings.zip
 ```
 
-6. Unzip the folder you just downloaded
+2. Unzip the folder you just downloaded
 ```
 unzip MyCustomThings
 ```
 
-7. cd to the folder you just unzipped
+3. cd to the folder you just unzipped
 ```
 cd MyCustomThings
 ```
-8.  copy to the config file to the deepstream-app folder for convinience
+4.  copy to the config file to the deepstream-app folder for convinience
 ```
 cp config_infer_custom_vision.txt /opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/
 ```
 
-9. Go to the deepstream-app folder 
+5. Go to the deepstream-app folder 
 ```
 cd ..
 ```
-10. Edit the sample configurations and streams
+
+### Step 3: Edit sample configurations to modify video source and specify the location of the config file
+1. Edit the sample configurations and streams
 ```
 vim source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt
 ```
-11.  Config the sample configurations
+2.  Config the sample configurations
 
 - Set the property `enable` to `0` under [tiled-display]
     ```
@@ -79,19 +85,21 @@ vim source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt
     config-file=config_infer_custom_vision.txt
     ```
 
-12. Execute the command to initiate the deepstream pipeline
+### Step 4: Initiate the deepstream pipeline
+1. Execute the command to initiate the deepstream pipeline
 ```
 deepstream-app -c source4_1080p_dec_infer-resnet_tracker_sgie_tiled_display_int8.txt
 ```
 
-13. Copy the file you generated out to your host
+### Step 5: View the video file
+1. Copy the file you generated out to your host
     
 ex:
 ```
 docker cp b1318da02df7:/opt/nvidia/deepstream/deepstream-6.1/samples/configs/deepstream-app/out.mp4 out_new.mp4
 ```
 
-1.  Scp the file to your jump server
+2.  Scp the file to your jump server
 ex:
 ```
 scp leann@172.23.30.55:/home/leann/out_new.mp4 out_new.mp4
